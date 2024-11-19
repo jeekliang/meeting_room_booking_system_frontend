@@ -10,11 +10,11 @@ import reportWebVitals from './reportWebVitals';
 const routes = [
   {
     path: '/',
-    element: <div>index</div>,
+    element: <div>首页</div>,
     errorElement: <ErrorPage />
   },
   {
-    path: 'login',
+    path: '/login',
     element: <Login />,
   },
   {
