@@ -15,17 +15,28 @@ const layout2 = {
 
 export function Login() {
   const [form] = Form.useForm();
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const handleLogin = async () => {
     const { username, password } = form.getFieldsValue();
     const res: any = await login({ username, password });
-    if (res?.code === 201 || res?.code === 200) {
-      message.success(res?.message);
-      // localStorage.setItem('token', res.data.token);
-      navigate('/'); 
+    console.log('res', res);
+    const {code, data} = res;
+    if (code === 201 || code === 200) {
+      localStorage.setItem('access_token', data.accessToken);
+      localStorage.setItem('refresh_token', data.refreshToken);
+      localStorage.setItem('user_info', JSON.stringify(data.userInfo));
+      messageApi
+      .open({
+        type: 'success',
+        content: res?.message,
+        duration: 2.0,
+      })
+      .then(() => navigate('/'))
     }
   }
   return <div className={styles.container}>
+    {contextHolder}
     <h1>会议室预定系统</h1>
     <div>
       <Form

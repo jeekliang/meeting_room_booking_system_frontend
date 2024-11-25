@@ -11,3 +11,7 @@ export const getCaptcha = (params: any) => {
 export const register = (params: any) => {
   return axios.post('/v2/user/register', { ...params });
 }
+
+export const updatePassword = (params: any) => {
+  return axios.post('/v2/user/update_password', { ...params });
+}
