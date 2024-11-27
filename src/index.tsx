@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/',
     element: <div>首页</div>,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
   },
   {
     path: '/login',
@@ -24,16 +24,14 @@ const routes = [
   {
     path: 'update-password',
     element: <UpdatePassword />,
-  }
-]
+  },
+];
 
 const router = createBrowserRouter(routes);
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
