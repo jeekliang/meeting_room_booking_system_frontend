@@ -5,12 +5,13 @@ import { Login } from './pages/login';
 import { Register } from './pages/register';
 import { UpdatePassword } from './pages/update-password';
 import { ErrorPage } from './pages/error-page';
+import { Home } from './pages/home';
 import reportWebVitals from './reportWebVitals';
 
 const routes = [
   {
     path: '/',
-    element: <div>首页</div>,
+    element: <Home />,
     errorElement: <ErrorPage />,
   },
   {
